@@ -24,7 +24,9 @@ module bmsce2_1mux (
 assign y=sel?a:b;
     assign uo_out[0]=y;
     assign uo_out[7:1]=0;
+    assign uio_out[7:0]=0;
+    assign uio_oe[7:0]=0;
   // List all unused inputs to prevent warnings
-  wire _unused = &{ena, clk, rst_n, 1'b0};
+        wire _unused = &{ena, clk, rst_n, 1'b0, [7:0] uio_in};
 
 endmodule
